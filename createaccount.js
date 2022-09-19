@@ -20,7 +20,7 @@ function CreateAccount(){
         if (!validate(name,     'name')) return;
         if (!validate(email,    'email')) return;
         if (!validate(password, 'password')) return;
-        ctx.users.push({name,email,password,balance:100});
+        ctx.users.push({name,email,password,balance:0});
         setShow(false);
     }
 
@@ -39,11 +39,11 @@ function CreateAccount(){
             body={show ? (
                 <>
                 Name<br/>
-                <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => setName(e.currentTarget.value)} /><br/>
+                <input type="input" className="form-control" id="name" placeholder="Enter name"  value={name} onChange={e => setName(e.currentTarget.value)} required/><br/>
                 Email address<br/>
-                <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)} /><br/>
+                <input type="input" className="form-control" id="email" placeholder="Enter email"  value={email} onChange={e => setEmail(e.currentTarget.value)} required/><br/>
                 Password<br/>
-                <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)} /><br/>
+                <input type="password" required className="form-control" id="password" placeholder="Enter password"  minlength="8" value={password} onChange={e => setPassword(e.currentTarget.value)} /><br/>
                 <button type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
                 </>
             ):(
