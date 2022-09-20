@@ -12,17 +12,16 @@ function CreateAccount(){
             setTimeout(() => setStatus(''),3000);
             return false;
         }
-        if(label == 'password' && field.length < 8)
-        {
-            setStatus('Error -password is not long enough: ' + label);
+        else if (password.length < 8)
+            setStatus('Error: ' + 'Password must be at least 8 characters');
+            feedback('Enter a password of at least 8 characters');
             setTimeout(() => setStatus(''),3000);
-        return false;
-        }
+            return false;
         return true;
     }
 
     function handleCreate(){
-        console.log(name,email,password);
+       
         if (!validate(name,     'name')) return;
         if (!validate(email,    'email')) return;
         if (!validate(password, 'password')) return;
@@ -108,7 +107,8 @@ function CreateAccount(){
                     type="submit" 
                     className= {`btn btn-light ${checkButton()}`}
                     onClick={handleCreate}
-                    aria-disabled={` ${checkButtonA()}`}
+                    disabled={!name||!email||!password}
+                    // aria-disabled={` ${checkButtonA()}`}
                     >Create Account
                 </button>
                 </>
