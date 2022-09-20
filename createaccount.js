@@ -4,7 +4,6 @@ function CreateAccount(){
     const [name, setName]                   = React.useState('');
     const [email, setEmail]                 = React.useState('');
     const [password, setPassword]           = React.useState('');
-    const [formCompleted, setFormCompleted] = React.useState(false);
     const ctx = React.useContext(UserContext);
 
     function validate(field, label){
@@ -12,6 +11,12 @@ function CreateAccount(){
             setStatus('Error: ' + label);
             setTimeout(() => setStatus(''),3000);
             return false;
+        }
+        if(label == 'password' && field.length < 8)
+        {
+            setStatus('Error -password is not long enough: ' + label);
+            setTimeout(() => setStatus(''),3000);
+        return false;
         }
         return true;
     }
@@ -32,9 +37,30 @@ function CreateAccount(){
         setFormCompleted(false);
         setShow(true);
     }
+
+    const checkButton = function (){
     
-    function inspectFormStatus() {
-        setFormCompleted(name && email && password);
+        if (name === ''  )
+        return 'disabled';
+        if (email === '')
+        return 'disabled';
+        if (password ==='' )
+        return 'disabled';
+    
+        return;
+     
+      }
+    function checkButtonA(){
+        
+        if (name === ''  )
+        return 'true';
+        if (email === '')
+        return 'true';
+        if (password ==='' )
+        return 'true';
+        else
+        return 'false';
+     
       }
 
     return (
@@ -51,11 +77,9 @@ function CreateAccount(){
                     id="name" 
                     placeholder="Enter name"  
                     value={name} 
-                    onChange={e => {
-                        setName(e.currentTarget.value);
-                        inspectFormStatus()
-                        }}
-                    onBlur={(e) => inspectFormStatus()}
+                    onChange={e =>
+                        setName(e.currentTarget.value)
+                    }
                     /><br/>
                 Email address<br/>
                 <input 
@@ -64,13 +88,11 @@ function CreateAccount(){
                     id="email" 
                     placeholder="Enter email"  
                     value={email} 
-                    onChange={e => {
-                        setEmail(e.currentTarget.value); 
-                        inspectFormStatus()}
+                    onChange={e =>
+                        setEmail(e.currentTarget.value)
                     }
-                    onBlur={(e) => inspectFormStatus()} 
                     /><br/>
-                Password<br/>
+                Password (8 character minimum)<br/>
                 <input 
                     type="password" 
                     required className="form-control"
@@ -78,17 +100,15 @@ function CreateAccount(){
                     placeholder="Enter password"  
                     minlength="8" 
                     value={password} 
-                    onChange={e => {
-                        setPassword(e.currentTarget.value);
-                        inspectFormStatus();
-                    }} 
-                    onBlur={(e) => inspectFormStatus()}   
+                    onChange={e => 
+                        setPassword(e.currentTarget.value)
+                    }   
                     /><br/>
                 <button 
                     type="submit" 
-                    className="btn btn-light" 
+                    className= {`btn btn-light ${checkButton()}`}
                     onClick={handleCreate}
-                    disabled={!formCompleted}
+                    aria-disabled={` ${checkButtonA()}`}
                     >Create Account
                 </button>
                 </>
