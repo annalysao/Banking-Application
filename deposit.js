@@ -45,7 +45,7 @@ function Deposit() {
       if (isDepositValid(amount)) {
         handleSuccess(amount);
       } else {
-        handleError("Please enter a valid amount to deposit.");
+        handleError("Please enter a valid amount/number to deposit.");
       }
     };
   
@@ -55,7 +55,7 @@ function Deposit() {
       if (isDepositValid(amount)) {
         setValidTransaction(true);
       } else {
-        handleError("Please enter a valid amount to deposit.");
+        handleError("Please enter a valid amount/number to deposit.");
       }
     };
   
