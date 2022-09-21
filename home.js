@@ -5,7 +5,7 @@ function Home(){
             txtcolor="white"
             header="Home"
             title="Welcome to Bad Bank"
-            text="Thank you for your continued trust"
+            text="Create a new account and receive $50 gift!"
             body={(<img src="bank.png" className="img-fluid" alt="Responsive image"/>)}
         />
     );

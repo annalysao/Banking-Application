@@ -45,7 +45,7 @@ function Withdraw() {
       if (isWithdrawalValid(amount)) {
         handleSuccess(amount);
       } else {
-        handleError("Please enter a valid amount to withdraw.");
+        handleError("Please enter a valid number to withdraw.");
       }
     };
   
@@ -55,7 +55,7 @@ function Withdraw() {
       if (isWithdrawalValid(amount)) {
         setValidTransaction(true);
       } else {
-        handleError("Not enough funds to withdrawl this amount. Please enter a valid amount to withdraw.");
+        handleError("Not enough funds to withdrawl this amount. Please enter a valid number to withdraw.");
       }
     };
   
