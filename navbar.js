@@ -13,10 +13,16 @@ function NavBar(){
                     <a className="nav-link" href="#/createAccount" data-toggle="tooltip" title="Create a new bank account">Create Account</a>
                     </li>
                     <li className="nav-item">
+                    <a className="nav-link" href="#/login" data-toggle="tooltip" title="Login to your account">Login</a>
+                    </li>
+                    <li className="nav-item">
                     <a className="nav-link" href="#/deposit" data-toggle="tooltip" title="Make a deposit into your account">Deposit</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="#/withdraw" data-toggle="tooltip" title="Make a withdrawl from your account">Withdraw</a>
+                    </li>
+                    <li className="nav-item">
+                    <a className="nav-link" href="#/balance" data-toggle="tooltip" title="Check your balance">Balance</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="#/alldata" data-toggle="tooltip" title="Look at the data related to this bank">All Data</a>
@@ -28,6 +34,5 @@ function NavBar(){
         </>
     );
 }
-
 
 
