@@ -16,6 +16,9 @@ function NavBar(){
                     <a className="nav-link" href="#/login" data-toggle="tooltip" title="Login to your account">Login</a>
                     </li>
                     <li className="nav-item">
+                    <a className="nav-link" href="#/logout" data-toggle="tooltip" title="Logout from your account">Logout</a>
+                    </li>
+                    <li className="nav-item">
                     <a className="nav-link" href="#/deposit" data-toggle="tooltip" title="Make a deposit into your account">Deposit</a>
                     </li>
                     <li className="nav-item">
